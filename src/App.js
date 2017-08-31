@@ -22,7 +22,6 @@ class App extends React.Component {
     return (
       <View>
       <Header headerText='Authentication' />
-        <Text>An App!</Text>
         <LoginForm />
       </View>
     );
