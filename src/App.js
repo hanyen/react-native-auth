@@ -40,7 +40,13 @@ export default App;
 
 
 //Error handling (failed authentication)
-  //use .catch
+  //* use .catch
+  //* if email not found, create an account
+  //validate email format
+  //replace button with spinner while authenticating user
+    *//create spinner component
+  //make email's first letter lowercase
+  //* clear out error message if user try again
 
 //Successful Authentication flow
   //use .then

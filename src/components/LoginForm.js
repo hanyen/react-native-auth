@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
-import { Button, Card, CardSection, Input } from './common';
+import { Button, Card, CardSection, Input, Spinner } from './common';
 import firebase from 'firebase';
 
 class LoginForm extends Component {
@@ -13,11 +13,13 @@ class LoginForm extends Component {
   //function invoked when button is pressed
   onButtonPress() {
     const { email, password } = this.state;
+    //clear out error
+    this.setState({ error: '' });
     //authenticate user
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(() => {
       //login successful
-
+      console.log('login successful');
     })
     .catch(() => {
       //if user not found, create an account
