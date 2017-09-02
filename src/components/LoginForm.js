@@ -7,14 +7,15 @@ class LoginForm extends Component {
 
   state = { email: '',
             password: '',
-            error: ''
+            error: '',
+            loading: '',
   }
 
   //function invoked when button is pressed
   onButtonPress() {
     const { email, password } = this.state;
     //clear out error
-    this.setState({ error: '' });
+    this.setState({ error: '', loading: true });
     //authenticate user
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(() => {
@@ -26,9 +27,23 @@ class LoginForm extends Component {
       firebase.auth().createUserWithEmailAndPassword(email, password)
       .catch(() => {
         //show error, need to rerender with error message
-        this.setState({ error: 'Authentication Failed' });
+        this.setState({ error: 'Authentication Failed', loading: '' });
       });
     });
+  }
+
+  renderButton() {
+    if (this.state.loading) {
+      return <Spinner size="small" />;
+    }
+
+    return (
+      <Button
+        onPress={this.onButtonPress.bind(this)}
+      >
+        Login
+      </Button>
+    );
   }
 
   render() {
@@ -61,11 +76,7 @@ class LoginForm extends Component {
           {this.state.error}
         </Text>
         <CardSection>
-          <Button
-            onPress={this.onButtonPress.bind(this)}
-          >
-            Login
-          </Button>
+          { this.renderButton() }
         </CardSection>
       </Card>
     );

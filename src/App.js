@@ -43,8 +43,10 @@ export default App;
   //* use .catch
   //* if email not found, create an account
   //validate email format
-  //replace button with spinner while authenticating user
-    *//create spinner component
+  //* replace button with spinner while authenticating user
+    //* create spinner component
+    //* conditional rendering, create a new 'loading' state in LoginForm
+    //* after authentication, show button back
   //make email's first letter lowercase
   //* clear out error message if user try again
 
