@@ -1,6 +1,6 @@
 import React from 'react';
 import firebase from 'firebase';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { Header } from './components/common';
 import LoginForm from './components/LoginForm';
 
@@ -29,3 +29,18 @@ class App extends React.Component {
 }
 
 export default App;
+
+
+//Authentication with Firebase
+
+// Loggin a user // LoginForm.js 
+  //add callback to button
+  //authenticate using firebase
+  //https://firebase.google.com/docs/auth/web/password-auth
+
+
+//Error handling (failed authentication)
+  //use .catch
+
+//Successful Authentication flow
+  //use .then
